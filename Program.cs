@@ -93,15 +93,74 @@ students[0] работает точно также как и numbers[0] в ма�
 
 // Part 4
 /*
-1. Коллекция
-List<string>
-Причина - товары можно добавлять и удалять
+1. Коллекция: List<string>   Причина: товары можно добавлять и удалять
 
-2. Коллекция
-Dictionary<string, string>
-Причина - номер телефона находится по уникальному имени
+2. Коллекция: Dictionary<TKey, TValue>  Причина: номер телефона находится по уникальному имени
 
-3. Коллекция
-HashSet<string>
-Причина: набор хранит только уникальные теги
+3. Коллекция: HashSet<T>  Причина: набор хранит только уникальные теги
 */
+
+
+
+
+// Final task
+// List хранит игры по порядку и позволяет добавлять новые.
+// Dictionary связывает название игры с её ценой.
+// HashSet хранит только уникальные жанры.
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("= Game Catalog =");
+
+        List<string> games = ["Minecraft", "Terraria", "Portal"];
+
+        Console.WriteLine("Games:");    
+        for (int i = 0; i < games.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {games[i]}");
+        }
+
+        Console.Write("Add a game: ");
+        games.Add(Console.ReadLine()!);
+
+        Console.WriteLine("Games:");
+        for (int i = 0; i < games.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {games[i]}");
+        }
+
+        Dictionary<string, double> prices = new()
+        {
+            ["Minecraft"] = 1999,
+            ["Terraria"] = 699,
+            ["Portal"] = 499
+        };
+
+        Console.Write("Enter a game to search for its price: ");
+        string game = Console.ReadLine()!;
+
+        if (prices.TryGetValue(game, out double price))
+            Console.WriteLine($"Price: {price:F2}");
+        else
+            Console.WriteLine("Game not found.");
+
+        string genres = "RPG,Sandbox,Action,RPG,Strategy,Action,Sandbox";
+        HashSet<string> uniqueGenres = [];
+
+        foreach (string genre in genres.Split(','))
+        {
+            uniqueGenres.Add(genre);
+        }
+
+        Console.WriteLine($"Unique genres: {uniqueGenres.Count}");
+
+        Console.Write("Enter a genre: ");
+        string genreName = Console.ReadLine()!;
+
+        if (uniqueGenres.Contains(genreName))
+            Console.WriteLine("This genre exists.");
+        else
+            Console.WriteLine("This genre does not exist.");
+    }
+}
