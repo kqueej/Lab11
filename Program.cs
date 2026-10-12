@@ -104,63 +104,136 @@ students[0] работает точно также как и numbers[0] в ма�
 
 
 // Final task
-// List хранит игры по порядку и позволяет добавлять новые.
-// Dictionary связывает название игры с её ценой.
-// HashSet хранит только уникальные жанры.
-class Program
-{
-    static void Main()
-    {
-        Console.WriteLine("= Game Catalog =");
+// List хранит игры по порядку и позволяет добавлять новые
+// Dictionary связывает название игры с её ценой
+// HashSet хранит только уникальные жанры
+// class Program
+// {
+//     static void Main()
+//     {
+//         Console.WriteLine("= Game Catalog =");
 
-        List<string> games = ["Minecraft", "Terraria", "Portal"];
+//         List<string> games = ["Minecraft", "Terraria", "Portal"];
 
-        Console.WriteLine("Games:");    
-        for (int i = 0; i < games.Count; i++)
-        {
-            Console.WriteLine($"{i + 1}. {games[i]}");
-        }
+//         Console.WriteLine("Games:");    
+//         for (int i = 0; i < games.Count; i++)
+//         {
+//             Console.WriteLine($"{i + 1}. {games[i]}");
+//         }
 
-        Console.Write("Add a game: ");
-        games.Add(Console.ReadLine()!);
+//         Console.Write("Add a game: ");
+//         games.Add(Console.ReadLine()!);
 
-        Console.WriteLine("Games:");
-        for (int i = 0; i < games.Count; i++)
-        {
-            Console.WriteLine($"{i + 1}. {games[i]}");
-        }
+//         Console.WriteLine("Games:");
+//         for (int i = 0; i < games.Count; i++)
+//         {
+//             Console.WriteLine($"{i + 1}. {games[i]}");
+//         }
 
-        Dictionary<string, double> prices = new()
-        {
-            ["Minecraft"] = 1999,
-            ["Terraria"] = 699,
-            ["Portal"] = 499
-        };
+//         Dictionary<string, double> prices = new()
+//         {
+//             ["Minecraft"] = 1999,
+//             ["Terraria"] = 699,
+//             ["Portal"] = 499
+//         };
 
-        Console.Write("Enter a game to search for its price: ");
-        string game = Console.ReadLine()!;
+//         Console.Write("Enter a game to search for its price: ");
+//         string game = Console.ReadLine()!;
 
-        if (prices.TryGetValue(game, out double price))
-            Console.WriteLine($"Price: {price:F2}");
-        else
-            Console.WriteLine("Game not found.");
+//         if (prices.TryGetValue(game, out double price))
+//             Console.WriteLine($"Price: {price:F2}");
+//         else
+//             Console.WriteLine("Game not found.");
 
-        string genres = "RPG,Sandbox,Action,RPG,Strategy,Action,Sandbox";
-        HashSet<string> uniqueGenres = [];
+//         string genres = "RPG,Sandbox,Action,RPG,Strategy,Action,Sandbox";
+//         HashSet<string> uniqueGenres = [];
 
-        foreach (string genre in genres.Split(','))
-        {
-            uniqueGenres.Add(genre);
-        }
+//         foreach (string genre in genres.Split(','))
+//         {
+//             uniqueGenres.Add(genre);
+//         }
 
-        Console.WriteLine($"Unique genres: {uniqueGenres.Count}");
+//         Console.WriteLine($"Unique genres: {uniqueGenres.Count}");
 
-        Console.Write("Enter a genre: ");
-        string genreName = Console.ReadLine()!;
+//         Console.Write("Enter a genre: ");
+//         string genreName = Console.ReadLine()!;
 
-        if (uniqueGenres.Contains(genreName))
-            Console.WriteLine("This genre exists.");
-        else
-            Console.WriteLine("This genre does not exist.");
-    }
-}
+//         if (uniqueGenres.Contains(genreName))
+//             Console.WriteLine("This genre exists.");
+//         else
+//             Console.WriteLine("This genre does not exist.");
+//     }
+// }
+
+// Self 1
+// class Program
+// {
+//     static void Main()
+//     {
+//         List<int> numbers = [5, 10, 5, 20, 5, 15];
+
+//         Console.Write("Enter a number to remove: ");
+//         int number = int.Parse(Console.ReadLine()!);
+
+//         while (numbers.Remove(number))
+//         {
+            
+//         }
+
+//         Console.WriteLine("Result: " + string.Join(", ", numbers));
+//     }
+// }
+
+// Self 2
+// class Program
+// {
+//     static void Main()
+//     {
+//         Dictionary<string, int> store = new()
+//         {
+//             ["Laptop"] = 5,
+//             ["Mouse"] = 12,
+//             ["Keyboard"] = 8
+//         };
+//         Console.Write("Enter an item: ");
+//         string item = Console.ReadLine()!;
+
+//         if (store.TryGetValue(item, out int quantity))
+//         {
+//             Console.WriteLine($"Quantity: {quantity}");
+//         }
+//         else
+//         {
+//             Console.WriteLine("Item not found.");
+//         }
+//     }
+// }
+
+// Self 3
+// class Program
+// {
+//     static void Main()
+//     {
+//         List<string> games = ["Quake", "Deus Ex", "Fallout 2"];
+
+//         Dictionary<string, double> prices = new()
+//         {
+//             ["Quake"] = 1999,
+//             ["Deus Ex"] = 699,
+//             ["Fallout 2"] = 499
+//         };
+//         HashSet<string> genres = ["Sandbox", "RPG", "Action", "Immersive sim"];
+
+//         Console.WriteLine("Games:");
+//         foreach (string game in games)
+//             Console.WriteLine(game);
+
+//         Console.WriteLine("Prices:");
+//         foreach (var item in prices)
+//             Console.WriteLine($"{item.Key}: {item.Value:F2}");
+
+//         Console.WriteLine("Genres:");
+//         foreach (string genre in genres)
+//             Console.WriteLine(genre);
+//     }
+// }
